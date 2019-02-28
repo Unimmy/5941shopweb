@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+		<style>
+		.xuanxiangdiv button{padding:5px 20px;border:none;background:#307ecc;margin:0px 10px;color:#fff}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								权限管理
+								<small>
+									<i class="icon-double-angle-right"></i>
+									所有系统权限
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+				
+
+								<div class="row">
+									<div class="col-xs-12">
+										<form id="quanxianform">
+										
+											&nbsp &nbsp &nbsp
+										&nbsp
+											<input type="hidden" value="1" name="page" id="thispage"/>
+											<input type="hidden" value="10000" name="rows" id="thisrows"/>
+											<input type="hidden" value="" name="uname" id="thisuname"/>
+											<input type="hidden" value="" name="UID" id="thisuid"/>
+											&nbsp &nbsp &nbsp
+										&nbsp
+										
+										</form>	
+										<h3  class="header smaller lighter blue">
+										<span onclick="getsystemallquanxian()" style="border:1px solid #ccc;padding:3px 15px;background: #eee;">查询管理系统权限</span>  
+			
+										</h3>
+										<h3><input style="height:41px;width:260px "type="text" id="saerchquanxian" placeholder="不想找，搜索一下吧！"><input onclick="MHsearchQX()" class="btn" type="button" value="OK"/></h3>
+										<hr>
+										
+										<div class="table-header">
+											5941权限管理
+										</div>
+
+										<div class="table-responsive">
+											
+												<form id="addquanxianform">
+												<div id="allmessage">
+												
+												</div>
+												
+												<input type="hidden" id="organizationid" name= "organization">
+												</form>
+												
+										</div>
+										
+									</div>
+								</div>
+								&nbsp &nbsp  <input  type="text" id="zuzhiming" placeholder="组织名"> <button class="btn" onclick="addquanxian()"> 添加</button>	&nbsp <button class="btn"  onclick="updquanxian()">修改</button>
+								
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/JS5941/indexlist.js"></script>
+		<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+	
+</body>
+</html>
+<script src="assets/js/JS5941/public.js"></script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script>
+window.onload= function(){
+	getsystemallquanxian();
+}
+</script>
+<script src="assets/js/JS5941/GetSystemAllQuanxian.js"> </script>

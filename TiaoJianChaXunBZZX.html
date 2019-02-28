@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body style="background:#fff">
+	
+
+	
+
+		 
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								帮助中心
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+									<span class="btn btn-danger" onclick="addOne()"> 添 加   </span>
+								<br>
+							
+							</div><!-- /.col -->
+							<br><br><br>
+							 
+						 
+							<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														
+														<th>序号</th>
+														<th>帮助编号</th>
+														<th>类型</th>
+														<th>当前标题 </th>
+														<th>上级标题</th>
+														<th>内容 </th>
+														<th>操作</th>
+														
+													</tr>
+												</thead>
+
+												<tbody id="allmessage">
+																									
+												</tbody>
+											</table>
+										<div style="float:left;padding-left:25%;padding-right:2%">
+												每页显示
+											<select onchange="setrows()" id="thisrows">
+												<option>5</option>
+												<option>10</option>
+												<option>15</option>
+												<option>20</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+												<option>500</option>
+											</select>
+											条数据
+										</div>
+										
+											
+											<div style="float:left;width:400px;height:50px;margin:auto"  id="annuediv">
+											
+											</div>
+												<div style="float:left;margin-left:20px;">
+											到第
+											<input  onchange="setpage()" type="text" style="width:45px;height:30px;text-align: center;" value="1" id="thispage"/>
+											页
+											<a id="okannue4"></a>
+										
+										</div>
+											
+											
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+	
+			</div><!-- /.main-container-inner -->
+
+			
+		</div><!-- /.main-container -->
+		<div id="add_div" style="display:none;position:fixed;top:50%;left:50%;margin:-185px 0px 0px -180px;background:#ffffff;padding:40px;border:1px solid #ccc;width:280px;height:370px;">
+			添加
+			<div style="width:100%"><span style="float:right" onclick="closedivs();showAll()" class="btn btn-danger">X</span></span></div><br>
+			<br>
+			<form id="addforms">
+				<br>
+			<div style="width:100%"><input  style="width:100%" type="text" id="title1" name="title1" placeholder="请输入上级标题"/></div><br>
+			<div style="width:100%"><input  style="width:100%" type="text" id="title2" name="title2" placeholder="请输入当前标题"/></div><br>
+			<div style="width:100%">
+				<select id="typess">
+					<option>普通用户</option>
+					<option>导购/线上店主/经销商</option>
+					
+				</select>
+				
+			</div><br>
+			<div style="width:100%"><input  style="width:100%" type="file" id="tupian" name="a"/><br>
+				 <input type="hidden" id="unameppl" name="uname"/>
+				 <input type="hidden" id="uidppl" name="UID"/>
+				 <input type="hidden" id="typesa" name="type"/>
+			</div>
+			</form>
+			<div>
+				<span onclick="addonemessage()" class="btn btn-success">确定</span>
+			</div>
+		</div>
+		
+		
+		
+		<div id="upd_div" style="display:none;position:fixed;top:50%;left:50%;margin:-185px 0px 0px -180px;background:#ffffff;padding:40px;border:1px solid #ccc;width:280px;height:370px;">
+			修改
+			<div style="width:100%"><span style="float:right" onclick="closeupddivs()" class="btn btn-danger">X</span></span></div><br>
+			<br>
+			<form id="updforms">
+				<br>
+			<div style="width:100%"><input  style="width:100%" type="text" id="title1upd" name="title1" placeholder="请输入上级标题"/></div><br>
+			<div style="width:100%"><input  style="width:100%" type="text" id="title2upd" name="title2" placeholder="请输入当前标题"/></div><br>
+			<div style="width:100%">
+				<select id="typessupd">
+					<option>普通用户</option>
+					<option>导购/线上店主/经销商</option>
+					
+				</select>
+				
+			</div><br>
+			<div style="width:100%">
+				<div style="width:100%"><input  style="width:100%" type="file" id="tupianupd" name="a"/><br>
+				 <input type="hidden" id="unamepplupd" name="uname"/>
+				 <input type="hidden" id="uidpplupd" name="UID"/>
+				 <input type="hidden" id="sstypesaupd" name="type"/>
+				 <input type="hidden" id="keyIDupd" name="id"/>
+			</div>
+			</form>
+			<div id="okdiv_s">
+				
+			</div>
+		</div>
+</body>
+</html>
+<script>
+window.onload= function(){
+	showAll();
+quanxianchuli();
+}
+
+function quanxianchuli(){
+var quanxian = localStorage.getItem("issuperadmin");
+if(quanxian!=1){
+ $("#codediv").css("display","none");
+}
+}
+</script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/TiaoJianChaXunBZZX.js"> </script>
+ <script src="assets/js/JS5941/public.js"></script>

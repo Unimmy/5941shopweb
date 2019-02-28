@@ -1,0 +1,7 @@
+.form-code{width:180px;height:34px;}
+#newpass{margin-top:11px;}
+#okbutton{margin-top:11px;}
+#inputok:hover{background: #ddd}
+.col-sm-9 textarea {
+	padding-right:1px
+}

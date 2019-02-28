@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<link rel="stylesheet" href="assets/css/5941CSS/selectGuaJiang.css">
+	</head>
+
+	<body>
+
+		
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+									实物卡片
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+							
+						</div><!-- /.page-header -->
+						<div class="page-header">
+							<h1>
+									<span class="btn btn-danger" onclick="openSWKP()">实物卡查询</span>
+							</h1>
+							<h1>
+								<span class="btn btn-danger" onclick="openDiv()">添加实物卡</span>
+							</h1>	
+							<h1>
+								<span class="btn btn-info" onclick="openRules()">实物卡规则查询</span>
+							</h1>
+							<h1>
+								<span class="btn btn-info" onclick="openDiv2()">添加实物卡规则查询</span>
+							</h1>
+							<h1>
+								<span class="btn btn-success" onclick="exportEx()">导出实物卡报表</span>
+							</h1>
+						</div><!-- /.page-header -->
+ 					
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+				
+
+								<div class="row">
+									<div class="col-xs-12">
+										<div class="table-header" id="tablehead">
+										</div>
+										<div class="table-responsive" id="tableresponsive">
+										
+										</div>
+									</div>
+								</div>
+
+								<div id="addyunfeixianpage" style="display:none ;position:absolute;left:50%;top:0px;z-index:22;background:#fff;margin-left:-300px;border:1px solid #ccc;width:800px;padding-left:150px;padding-bottom:80px">
+									<div style="height:150px">
+									<span style="float:right" onclick="closePage()" class="btn btn-danger">X</span>
+									
+									</div>
+					 
+									<form class="form-horizontal" role="form" id="addshitkapForm" >
+										<input type="hidden" value="" id="setuid" name="UID" />
+										<input type="hidden" value="" id="setuname" name="uname" />		
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 卡片名字<span class="red"> *</span> </label>
+
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" name="title" />
+																				
+										</div>
+										
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >额度<span class="red"> *</span></label>
+
+										<div class="col-sm-9"> 
+											<input type="text" class="col-xs-10 col-sm-5"  name="nummax" />	
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >生成数量<span class="red"> *</span></label>
+
+										<div class="col-sm-9"> 
+											<input type="text" class="col-xs-10 col-sm-5" name="size" />	
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >卡片生效时间<span class="red"> *</span></label>
+
+										<div class="col-sm-9"> 
+											<input type="date" class="col-xs-10 col-sm-5" onchange="changestrattime()" id="strnowDate"/>	
+											<input type="hidden" name="star" id="stardate">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >卡片过期时间<span class="red"> *</span></label>
+
+										<div class="col-sm-9"> 
+											<input type="date" class="col-xs-10 col-sm-5" onchange="changeendtime()" id="endnowDate"/>	
+											<input type="hidden" name="end" id="enddate">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6">  </label>
+
+										<div class="col-sm-9">
+											<input type="button" onclick="addYouHuiQuan()" class="btn btn-success" value="确 定" name="code1" />
+																			
+										</div>
+										
+									</div>
+
+
+								</form>
+									
+									
+								
+										
+			</div><!-- /.main-container-inner -->
+			<div id="addrules" style="display:none ;position:absolute;left:50%;top:0px;z-index:22;background:#fff;margin-left:-300px;border:1px solid #ccc;width:800px;padding-left:150px;padding-bottom:80px">
+					<div style="height:150px">
+					<span style="float:right" onclick="closePage()" class="btn btn-danger">X</span>
+					</div>
+					<form class="form-horizontal" role="form" id="addshitikapianrules" >
+						<input type="hidden" value="" id="suid" name="UID" />
+						<input type="hidden" value="" id="suname" name="uname" />	
+					<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-6">规则编号<span class="red"> *</span> </label>
+	
+							<div class="col-sm-9">
+								<input type="text" class="col-xs-10 col-sm-5" name="code" />
+																	
+							</div>
+							
+						</div>	
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 使用券的最小价<span class="red"> *</span> </label>
+
+						<div class="col-sm-9">
+							<input type="text" class="col-xs-10 col-sm-5" name="min" />
+																
+						</div>
+						
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >使用券的最大价<span class="red"> *</span></label>
+
+						<div class="col-sm-9"> 
+							<input type="text" class="col-xs-10 col-sm-5"  name="max" />	
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >减少金额<span class="red"> *</span></label>
+
+						<div class="col-sm-9"> 
+							<input type="text" class="col-xs-10 col-sm-5" name="num" />	
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-6">  </label>
+						<div class="col-sm-9">
+							<input type="button" onclick="addRules()" class="btn btn-success" value="确 定" name="code1" />							
+						</div>
+						
+					</div>
+
+
+				</form>
+					
+					
+				
+						
+</div>					
+		
+		</div><!-- /.main-container -->
+
+	
+</body>
+</html>
+<script>
+window.onload=function(){
+	openSWKP()
+}
+</script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/selectSTKP.js"> </script>
+<script src="assets/js/JS5941/public.js"></script>

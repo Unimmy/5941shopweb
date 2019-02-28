@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<style>
+		#dianpuxinxi_div{display:none;width:600px ;border:1px solid #ccc;background:#fff;padding:35px;position:fixed;top:29px;left:50%;margin-left:-300px}
+		#closeannuex{position:relative;left:98%;top:0px;}
+		#xiugaikfDIV{width:380px;position:fixed;top:16%;left:50%;margin-left:-190px;z-index:1200;background:#efefef;padding:0px 35px 35px 35px;border:1px solid #ccc;display:none}
+		#closepageannues{position:relative;left:92%}
+		.shuruzi{width:80px}
+		</style>
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		 
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								店铺列表
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+								
+											
+												
+												
+								
+												
+						</div><!-- /.page-header -->
+
+
+										
+						<div class="row">
+						
+							
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								
+
+								<div class="row">
+									<div class="col-xs-12">
+										
+							
+										<div style="float:left;margin-right:20px;">
+										<span id="xileispan" style=" margin-left:10px;background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">店铺状态</span>												
+										<select  style="height:29px" id="shopstate">
+											<option>全部</option>
+											<option>正常</option>
+											<option>关闭</option>
+											<option>提交</option>
+											<option>未通过</option>
+											<option>冻结</option>
+										</select>
+										</div>
+										
+										
+										<div style="float:left;margin-right:20px;">
+										<span id="xileispan" style=" margin-left:10px;background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">级别</span>												
+										<select style="height:29px" id="superid">
+											<option>全部</option>
+											
+											<option>供应商</option>
+										</select>
+										</div>
+										
+										<div  style="float:left;margin-right:20px;">
+										<span id="xileispan" style=" margin-left:10px;background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">店铺名称</span>												
+										<input type="text" id="shopname">
+										</div>
+									
+										<div  style="float:left;margin-right:20px;">
+										<span id="xileispan" style=" margin-left:10px;background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">用户账号</span>												
+										<input type="text" id="adminphone">
+										</div>
+									
+										
+										
+										
+										<br><br>
+										
+											
+									<div>
+									
+										<div style="float:left;margin-right:20px;">
+										<span id="xileispan" style=" margin-left:10px;background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">店铺类型</span>												
+										
+										<input type="text" id="shoptype">
+										</div>
+										
+										<span id="xileispan" style=" margin-left:10px;background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">所属区域</span>												
+										<input type="text" placeholder="所属区域" id="province">
+										
+										<div style="float:right;">
+											<input style="width:180px;font-size:18px" type="button" onclick="showshopAll()" class="btn btn-success" value="查询"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+										</div> 
+									</div>	
+									<br>
+									
+									<div style="width:492px;margin:auto">
+										<input style="height:47px;width:273px;padding-left:10px" type="text" placeholder="请输入您要搜索的内容" id="contexts">
+										
+										<div style="float:right;">
+											<input style="width:180px;font-size:18px" type="button" onclick="likeAll()" class="btn btn-danger" value="搜 &nbsp 索"/>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+										</div> 
+									</div>	
+									
+										<hr>
+										<form id="uodateform">
+											<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														
+														<th>序号</th>
+														<th>店铺ID</th>
+														<th>所属区域</th>
+														<th>店铺名称</th>
+														<th>店铺编号</th>
+														<th>店铺级别</th>
+														<th>店铺类型</th>
+														<th>用户账号</th>
+														<th>店铺状态</th>
+														
+														<th>详细地址</th>
+														
+														<th>客服电话</th>
+														<th>操作</th>
+														
+														
+													</tr>
+												</thead>
+
+												<tbody id="allmessage">
+																									
+												</tbody>
+											</table>
+										
+											<div style="float:left;padding-left:25%;padding-right:2%">
+												每页显示
+											<select id="thisrows">
+												<option>5</option>
+												<option>10</option>
+												<option>15</option>
+												<option>20</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+												<option>500</option>
+											</select>
+											条数据
+										</div>
+										
+									
+										
+										<div style="width:390px;height:50px;margin:auto;float:left;"  id="annuediv">
+											
+										</div>
+										
+										<div style="float:left;margin-left:20px;">
+											到第
+											<input type="text" onblur="changepages()" style="width:45px;height:29px;text-align: center;" value="1" id="thispage"/>
+											页
+											
+										<input type="button" onclick="showshopAll()" class="btn btn-success" value="确定"  />
+										</div>
+										</form>
+										</div>
+									</div>
+								</div>
+
+								<div id="xiugaikfDIV">
+									<span id="closeannuex" onclick="closeupdateShop()" class="btn">X</span>
+									<table >
+										<tr>
+											<td class="shuruzi">
+												客服电话
+											</td>
+											<td>
+												<input type="text" style="margin-bottom:15px" placeholder="请输入客服电话号码" id="kfphone"/>
+											</td>
+										</tr>
+										<tr>
+											<td class="shuruzi">
+												所属区域
+											</td>
+											<td>
+												<input type="text" style="margin-bottom:15px" placeholder="请输入所属区域" id="shengupd"/>
+											</td>
+										</tr>
+											
+										<tr>
+											<td class="shuruzi">
+												详细地址
+											</td>
+											<td>
+												<input type="text" style="margin-bottom:15px" placeholder="请输入详细地址" id="xxdzupd"/>
+											</td>
+										</tr>	
+										<tr>
+											<td class="shuruzi">
+												店铺简介
+											</td>
+											<td>
+												<input type="text" style="margin-bottom:15px" placeholder="请输入店铺简介" id="dpjjupd"/>	 
+											</td>
+										</tr>											
+										<tr>
+											<td>
+												<br>
+												<span onclick="changeKfphone()" class="btn btn-danger">确定</span>
+											
+											</td>
+										</tr>
+									
+									</table>
+								</div>
+								
+								<div  id="dianpuxinxi_div">
+									
+								</div>
+			</div><!-- /.main-container-inner -->
+			
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/JS5941/indexlist.js"></script>
+		<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+
+	
+</body>
+</html>
+</html>
+<script>
+window.onload= function(){
+	showshopAll();
+}
+</script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/tiaojianshop.js"> </script>
+<script src="assets/js/JS5941/public.js"></script>

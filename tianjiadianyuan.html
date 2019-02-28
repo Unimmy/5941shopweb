@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+ 
+		<!-- fonts -->
+		<style>
+		#pldaospgg{width:380px;height:200px;margin:20px;}
+		#pldaospggs{width:380px;height:200px;margin:20px;}
+		#pldaospggsS{width:380px;height:200px;margin:20px;}
+		</style>
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+ 
+	</head>
+
+	<body style="background:#fff">
+
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								添加店员
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div style="float:left"  class="btn btn-primary" id="pldaospgg"><h4 >导入店员</h4>
+									<form id="daorudyform">
+									<input type="file"  class="btn btn-primary"  name="a"/>
+									<input type="hidden" id="uidss" name="UID" value=""/>
+									<input type="hidden" id="unamess" name="uname" value=""/>
+									
+									<hr>
+									
+									</form>
+									<input type="button" style="width:180px" class="btn btn-warning" onclick="tijiaodianyuan()" value="确定" />
+								</div>
+							
+								<div class=" btn btn-primary" id="pldaospggs">
+								
+								<h4 >添加店员</h4>
+									
+
+										
+										<span  style="margin-left:35px;margin-right:-34px;color:#fff;text-align:center;line-height:29px;display: block;width:105px;height:29px;float:left;border-left:1px solid #fff;border-bottom:1px solid #fff;border-top:1px solid #fff;">店员手机号</span>												
+										<input type="text" style="border:1px solid #fff;padding-top:6px" id="dianyuanphone" placeholder="请输入店员手机号 " class="form" name="phone"/>	<br><br><hr>
+										<button style="width:180px" onclick="addonedianyuan()" class="btn btn-warning">
+												<i class="icon-ok bigger-110"></i>
+												确定
+										</button>
+										
+	
+								</div><!-- /.col -->
+							
+								<div class=" btn btn-primary" id="pldaospggsS">
+								
+								<h4 >指定店铺添加店员</h4>
+									
+										<span  style="margin-left:35px;margin-right:-34px;color:#fff;text-align:center;line-height:29px;display: block;width:105px;height:29px;float:left;border-left:1px solid #fff;border-bottom:1px solid #fff;border-top:1px solid #fff;">店铺编号</span>
+										<input type="text" style="border:1px solid #fff;padding-top:6px;margin-bottom:10px" id="zhidingcode" placeholder="店铺编号 " class="form" name="phone"/>   <br>
+										
+										<span  style="margin-left:35px;margin-right:-34px;color:#fff;text-align:center;line-height:29px;display: block;width:105px;height:29px;float:left;border-left:1px solid #fff;border-bottom:1px solid #fff;border-top:1px solid #fff;">店员手机号</span>								
+										<input type="text" style="border:1px solid #fff;padding-top:6px" id="zhidingphone" placeholder="请输入店员手机号 " class="form" name="phone"/>	<br><br>
+										
+										<button style="width:180px" onclick="addzhidingdianyuan()" class="btn btn-warning">
+												<i class="icon-ok bigger-110"></i>
+												确定
+										</button>
+										
+	
+								</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+						
+				</div><!-- /.main-content -->
+				<span style="display:block;margin-left:30px" class="red">注意：店员手机号必须先注册并登录，否则无法添加。</span>
+
+			</div><!-- /.main-container-inner -->
+
+			
+		</div><!-- /.main-container -->
+
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/chosen.jquery.min.js"></script>
+		<script src="assets/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="assets/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="assets/js/date-time/moment.min.js"></script>
+		<script src="assets/js/date-time/daterangepicker.min.js"></script>
+		<script src="assets/js/bootstrap-colorpicker.min.js"></script>
+		<script src="assets/js/jquery.knob.min.js"></script>
+		<script src="assets/js/jquery.autosize.min.js"></script>
+		<script src="assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="assets/js/jquery.maskedinput.min.js"></script>
+		<script src="assets/js/bootstrap-tag.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+	
+</body>
+</html>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/addonedianyuan.js"> </script>
+<script src="assets/js/JS5941/public.js"> </script>
+
+<script>
+window.onload= function(){
+	showmokuai();
+}
+</script>

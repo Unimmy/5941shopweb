@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+		<link id="issuperadmin" rel="stylesheet" href="assets/css/5941CSS/indexs.css"/>
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<script src="assets/js/ace-extra.min.js"></script>
+
+	</head>
+
+	<body style="width:100%;height:100%;overflow: hidden;">
+	<div style="width:100%;height:100%;">
+		<div style="height:90px" class="navbar navbar-default" id="navbar">
+
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							</br>
+							<i class="icon-leaf"></i>
+							5941 后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation"><br>
+					<span id="loginmessage"></span><span id="loginstate"><a href="login.html"class="orange">登录</a></span><span class="orange" onclick="zhuxiao()" id="zhuxiao">注销</span><br>
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+
+		<div style="width:100%;height:90%;" class="main-container" id="main-container">
+			
+			<div style="width:100%;height:100%;" class="main-container-inner">
+				
+				<div style="height:100%;width:100%;padding-top:3%" id="yinru">
+					<iframe onclick=""  id="myiframe" src="index.html"  frameborder="none" scrolling="auto" style="width: 100%; border:none;height: 100%;"></iframe>
+				</div>
+				
+			</div><!-- /.main-container-inner -->
+
+		</div><!-- /.main-container -->
+
+		<div style="position:absolute;top:90px;width:100%">
+				<ul style=" padding:0.5% 0% 0.5% 1%;" class="nav nav-list">
+						
+						
+
+						<li   style="width:7.07%;border:1px solid #ececec;float:left" id="SPYDD">
+							<a id="SPYDDa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 商品与订单 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangspydd()" class="submenu">
+										<li id="SPYDD_SPLB">
+											<a class="changecolor" onclick="changesrc('tiaojianselect')">
+											商品列表
+											</a>
+										</li>
+										<li id="SPYDD_SPDR">
+											<a  class="changecolor" id="piliangcommodity"  onclick="changesrc('uploadone')">
+											
+											商品导入
+											</a>
+										</li>
+										
+										<li id="SPYDD_DDLB">
+											<a  class="changecolor" onclick="changesrc('WEBdingdanlist')">
+											
+											订单列表
+											</a>
+										</li>
+										<li id="SPYDD_DDCX">
+											<a  class="changecolor" onclick="changesrc('DingDanChaXun')">
+											
+											订单查询
+											</a>
+										</li>
+										<li id="SPYDD_THLB">
+											<a  class="changecolor" onclick="changesrc('tiaojiantuihuo')" >
+										
+											退货列表
+											</a>
+										</li>
+										<li id="SPYDD_DPTHLB">
+											<a  class="changecolor" onclick="changesrc('danpintiaojiantuihuo')" >
+										
+											单品退货列表
+											</a>
+										</li>
+										<li id="SPYDD_TKCX">
+											<a  class="changecolor" onclick="changesrc('TuiKuanChaXun')" >
+										
+											退款查询
+											</a>
+										</li>
+										
+							</ul>
+						</li>
+						
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="DPGL">
+							<a id="DPGLa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 店铺管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangdpgl()" class="submenu">
+										
+										<li id="DPGL_TJDLS">
+											<a onclick="changesrc('shengqingdaili')" class="dropdown-toggle">
+											<i class="icon-pencil"></i>
+
+											添加代理商
+											<b class="arrow icon-angle-down"></b>
+											</a>
+
+										</li>
+										<li id="DPGL_TJDP">
+											<a onclick="changesrc('addShop')" class="dropdown-toggle">
+											<i class="icon-pencil"></i>
+
+											添加店铺
+											<b class="arrow icon-angle-down"></b>
+											</a>
+
+										</li>
+										
+										<li id="DPGL_DPDR">
+											<a  onclick="changesrc('uploadoneshop')" >
+												<i class="icon-double-angle-right"></i>
+											店铺批量导入
+											</a>
+										</li>
+								
+										<li id="DPGL_DRYL">
+											<a onclick="changesrc('tiaojianshopme')" >
+											<i class="icon-double-angle-right"></i>
+											店铺导入预览
+											</a>
+										</li>
+										
+										<li id="DPGL_DPLB">
+											<a onclick="changesrc('tiaojianshop')">
+											<i class="icon-double-angle-right"></i>
+											店铺列表
+											</a>
+										</li>	
+										
+										<li id="DPGL_TJRYJ">
+											<a  onclick="changesrc('TuiJianRenYiJiao')" >
+											<i class="icon-double-angle-right"></i>
+												推荐人移交
+											</a>
+										</li>
+										<li id="DPGL_TJDY">
+											<a  onclick="changesrc('tianjiadianyuan')" >
+												<i class="icon-double-angle-right"></i>
+												添加店员
+											</a>
+										</li>	
+								
+										<li id="DPGL_CJGX">
+											<a  onclick="changesrc('xiajichaxun')" >
+												<i class="icon-double-angle-right"></i>
+												层级关系
+											</a>
+										</li>	
+								
+										<li id="DPGL_DGGS">
+											<a  onclick="changesrc('dianpuguishu')" >
+											<i class="icon-double-angle-right"></i>
+												导购归属
+											</a>
+										</li>	
+								
+							</ul>
+						</li>
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="JXSGL">
+							<a id="JXSGLa" class="dropdown-toggle">
+							
+								<span class="menu-text"> 经销商/店主 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangjxsgl()" class="submenu">
+								<li id="JXSGL_JXSLB" >
+									<a  onclick="changesrc('TiaoJianChaXunJXSGL')">
+										<i class="icon-double-angle-right"></i>
+										经销商列表
+									
+									</a>
+								</li>
+								<li id="JXSGL_TJJSGZ" >
+									<a  onclick="changesrc('JXSJieSuanGuiZe')">
+										<i class="icon-double-angle-right"></i>
+										 
+										添加结算规则
+									</a>
+								</li>
+								<li id="JXSGL_JSGZCX" >
+									<a  onclick="changesrc('FindJXSJieSuanGuiZe')">
+										<i class="icon-double-angle-right"></i>
+										 
+										结算规则查询
+									</a>
+								</li>									
+							</ul>
+						</li>
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="YHGL">
+							<a id="YHGLa" class="dropdown-toggle">
+							
+								<span class="menu-text"> 用户管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangyhgl()" class="submenu">
+								<li id="YHGL_YHLB" >
+									<a  onclick="changesrc('selectalluser')">
+										<i class="icon-double-angle-right"></i>
+										用户列表
+									</a>
+								</li>	
+							</ul>
+						</li>
+
+						
+						
+						<li style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="CXHD">
+							<a id="CXHDa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 促销活动 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangcxhd()" class="submenu">
+								<li id="CXHD_HDGL">
+									<a onclick="changesrc('addactivity')" >
+										<i class="icon-double-angle-right"></i>
+										活动管理
+									</a>
+								</li>
+
+						
+								<li id="CXHD_HDCX">
+									<a onclick="changesrc('selectmyacvtivity')">
+										<i class="icon-double-angle-right"></i>
+										活动查询
+									</a>
+								</li>
+
+								<li id="CXHD_YHQ">
+									<a onclick="changesrc('selectYouHuiQuan')">
+										<i class="icon-double-angle-right"></i>
+										优惠券
+									</a>
+								</li>
+								
+								<li id="CXHD_MS">
+									<a onclick="changesrc('selectYouMiaoSha')">
+										<i class="icon-double-angle-right"></i>
+										秒杀
+									</a>
+								</li>
+								<li id="CXHD_YS">
+									<a onclick="changesrc('selectYouYuShou')">
+										<i class="icon-double-angle-right"></i>
+										预售
+									</a>
+								</li>
+								<li id="CXHD_PT">
+									<a onclick="changesrc('selectYouPDD')">
+										<i class="icon-double-angle-right"></i>
+										拼团
+									</a>
+								</li>
+								<li id="CXHD_KB">
+									<a onclick="changesrc('selectKaBao')">
+										<i class="icon-double-angle-right"></i>
+										卡包
+									</a>
+								</li>
+								<li id="CXHD_WXHB">
+									<a onclick="changesrc('selectWeiXinHongBao')">
+										<i class="icon-double-angle-right"></i>
+										微信红包
+									</a>
+								</li>
+								<li id="CXHD_GJHD">
+									<a onclick="changesrc('selectGuaJiang')">
+										<i class="icon-double-angle-right"></i>
+										刮奖活动
+									</a>
+								</li>
+								<li id="CXHD_STKP">
+									<a onclick="changesrc('selectSTKP')">
+										<i class="icon-double-angle-right"></i>
+										实物卡片
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+						<!--<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="XXGL">
+							<a href="#" class="dropdown-toggle">
+								
+								<span class="menu-text"> 消息管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li id="xiaoxiguanli">
+									<a onclick="changesrc('addsystemmessage')" >
+										<i class="icon-double-angle-right"></i>
+										消息管理
+									</a>
+								</li>
+
+						
+								<li id="xiaoxichaxun">
+									<a onclick="changesrc('selectsystemmessage')" >
+										<i class="icon-double-angle-right"></i>
+										消息查询
+									</a>
+								</li>
+
+							</ul>
+						</li>-->
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="BBGL">
+							<a id="BBGLa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 报表管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+								<ul onmouseleave="closedaohangbbgl()" class="submenu">
+								<li id="BBGL_XSBB">
+									<a onclick="changesrc('TiaoJianChaXunXSBB')"  >
+										<i class="icon-double-angle-right"></i>
+										销售报表
+									</a>
+								</li>
+								<li id="BBGL_THBB" >
+									<a  onclick="changesrc('TiaoJianChaXunTHBB')" >
+										<i class="icon-double-angle-right"></i>
+										退货报表
+									</a>
+								</li>
+								<li id="BBGL_DPTJ" >
+									<a  onclick="changesrc('TiaoJianChaXunTJBB')" >
+										<i class="icon-double-angle-right"></i>
+										店铺统计报表
+									</a>
+								</li>
+								<li id="BBGL_JYDD">
+									<a onclick="changesrc('TiaoJianChaXunJYDD')" >
+										
+										交易订单
+									</a>
+								</li>
+								<li id="BBGL_YFBB">
+									<a onclick="changesrc('TiaoJianChaXunYFBB')" >
+										
+										邮费报表
+									</a>
+								</li>		
+								<li id="BBGL_DYYJ">
+									<a onclick="changesrc('TiaoJianChaXunDYYJ')" >
+										
+										店员业绩
+									</a>
+								</li>	
+								<li id="BBGL_CWBB">
+									<a onclick="changesrc('TiaoJianChaXunCWBB')" >
+										
+										财务报表
+									</a>
+								</li>									
+							</ul>
+						</li>
+						
+							<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="JSZX">
+							<a id="JSZXa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 结算中心 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+								<ul onmouseleave="closedaohangjszx()" class="submenu">
+								
+								<li id="JSZX_JSBB" >
+									<a  onclick="changesrc('TiaoJianChaXunJSBB')" >
+										<i class="icon-double-angle-right"></i>
+										 结算报表查询
+									</a>
+								</li>
+								<li id="JSZX_GZSZ">
+									<a onclick="changesrc('addJieSuanGuiZe')" >
+										<i class="icon-double-angle-right"></i>
+										 结算规则设置
+									</a>
+								</li>
+								<li id="JSZX_GZSZ">
+									<a onclick="changesrc('SPgudingfencheng')" >
+										<i class="icon-double-angle-right"></i>
+										商品固定分成
+									</a>
+								</li>
+								<li id="JSZX_GZSZ">
+									<a onclick="changesrc('GYSgudingfencheng')" >
+										<i class="icon-double-angle-right"></i>
+										供应商固定分成
+									</a>
+								</li>
+								<li id="JSZX_GZCX">
+									<a  onclick="changesrc('FindJieSuanGuiZe')" >
+										<i class="icon-double-angle-right"></i>
+										结算规则查询
+									</a>
+								</li>	
+								
+								<li id="JSZX_YJHJ">
+									<a  onclick="changesrc('TiaoJianChaXunYJTJ')" >
+										<i class="icon-double-angle-right"></i>
+										佣金合计查询
+									</a>
+								</li>	
+								
+							
+								<li id="JSZX_YJMX">
+									<a  onclick="changesrc('TiaoJianChaXunYJMX')" >
+										<i class="icon-double-angle-right"></i>
+										佣金明细查询
+									</a>
+								</li>	
+								
+							</ul>
+						</li>
+							
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left"  id="QXGL">
+							<a id="QXGLa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 权限管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangqxgl()" class="submenu">
+							
+								<li id="QXGL_QXSZ">
+									<a onclick="changesrc('GetSystemAllQuanxian')">
+										<i class="icon-double-angle-right"></i>
+										权限设置
+									</a>
+								</li>
+								
+								<li id="QXGL_QXSZ">
+									<a onclick="changesrc('GetSystemAllQuanxian2')">
+										<i class="icon-double-angle-right"></i>
+										权限设置2
+									</a>
+								</li>
+							
+								<li id="QXGL_JSGL">
+									<a onclick="changesrc('GetAllzu')">
+										<i class="icon-double-angle-right"></i>
+										角色管理
+									</a>
+								</li>
+								
+								
+								<li id="QXGL_JSCX">
+									<a onclick="changesrc('GetZuzhiQuanxian')">
+										<i class="icon-double-angle-right"></i>
+										角色权限查询
+									</a>
+								</li>
+							</ul>
+						</li>
+							
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="TPGL">
+							<a id="TPGLa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 图片管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangtpgl()" class="submenu">
+								<li id="TPGL_TPCX">
+									<a onclick="changesrc('tiaojianGuanggao')" >
+										<i class="icon-double-angle-right"></i>
+										查询图片
+										
+									</a>
+								</li>
+								<li id="TPGL_TJTP">
+									<a onclick="changesrc('addGuanggao')"  >
+										<i class="icon-double-angle-right"></i>
+										添加图片
+									</a>
+								</li>
+								
+								<li id="TPGL_TPDR">
+									<a onclick="changesrc('inputbig')"  >
+										<i class="icon-double-angle-right"></i>
+										类别图片导入
+									</a>
+								</li>
+								
+								
+
+								
+							</ul>
+						</li>
+						
+							
+
+						
+						
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="PJYFK">
+							<a  id="PJYFKa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 评价与反馈 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangjygl()" class="submenu">
+								<li id="PJYFK_PJCX">
+									<a  onclick="changesrc('selectonedingdanpingjia')" >
+										<i class="icon-double-angle-right"></i>
+										查询评价
+									</a>
+								</li>
+
+								<li id="PJYFK_PJXG">
+									<a  onclick="changesrc('updatepingjia')">
+										<i class="icon-double-angle-right"></i>
+										修改评价
+									</a>
+								</li>
+
+								<li id="PJYFK_FKXX">
+									<a onclick="changesrc('selectfankui')" >
+										<i class="icon-double-angle-right"></i>
+										查询反馈信息
+									</a>
+								</li>
+							
+							</ul>
+						</li>
+
+						
+						
+						
+						
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="KCGL">
+							<a id="KCGLa" class="dropdown-toggle">
+								
+								<span class="menu-text"> 库存管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangkcgl()" class="submenu">
+								<li id="KCGL_KCCX">
+									<a onclick="changesrc('tiaojianselectStock')" >
+										<i class="icon-double-angle-right"></i>
+										库存查询
+									</a>
+								</li>
+							
+								<li id="KCGL_KCDR">
+									<a onclick="changesrc('uploadoneStock')" >
+										<i class="icon-double-angle-right"></i>
+										库存导入
+									</a>
+								</li>
+
+						
+								<li id="KCGL_TJKC">
+									<a onclick="changesrc('addoneStock')">
+										<i class="icon-double-angle-right"></i>
+										添加库存
+									</a>
+								</li>
+								
+								<li id="KCGL_TJSXJ">
+									<a onclick="changesrc('tiaojianseStockcaozuo')" >
+										<i class="icon-double-angle-right"></i>
+										条件上下架
+									</a>
+								</li>
+								
+								<li id="KCGL_YJSXJ">
+									<a onclick="changesrc('updateallstockbyshop')"  >
+										<i class="icon-double-angle-right"></i>
+										一键上下架
+									</a>
+								</li>
+								
+								<li id="KCGL_KCXG">
+									<a onclick="changesrc('updatenoeStock')"  >
+										<i class="icon-double-angle-right"></i>
+										库存修改
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+					
+						
+						
+						
+					
+
+					
+					
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="YJTX">
+							<a id="YJTXa" class="dropdown-toggle">
+								 
+								<span class="menu-text"> 佣金提现</span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangyjtx()" class="submenu">
+								<li id="YJTX_ZFBLB">
+									<a onclick="changesrc('TiaoJianChaXunZFBLB')" >
+										<i class="icon-double-angle-right"></i>
+										支付宝列表
+									</a>
+								</li>
+								
+								<li id="YJTX_TXLB">
+									<a onclick="changesrc('TiaoJianChaXunTXLB')" >
+										<i class="icon-double-angle-right"></i>
+										提现列表
+									</a>
+								</li>
+								
+							
+							</ul>
+						</li>						
+						
+						
+						<li  style="width:7.07%;background:#fff;border:1px solid #ececec;float:left" id="JFGL">
+													<a id="JFGLa" class="dropdown-toggle">
+														 
+														<span class="menu-text"> 积分兑换</span>
+						
+														<b class="arrow icon-angle-down"></b>
+													</a>
+						
+													<ul onmouseleave="closedaohangjfgl()" class="submenu">
+													
+														
+														<li id="JFGL_JFMX">
+															<a onclick="changesrc('TiaoJianChaXunJFMX')" >
+																<i class="icon-double-angle-right"></i>
+																积分明细
+															</a>
+														</li>
+														
+													</ul>
+												</li>		
+						
+						
+						<li style="width:7.07%;background:#fff;border:1px solid #ececec;float:left"  id="XTSS">
+							<a id="MMGLa" class="dropdown-toggle">
+								 
+								<span class="menu-text"> 系统设置 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul onmouseleave="closedaohangmmgl()" class="submenu">
+								<li id="XTSS_XGMM">
+									<a onclick="changesrc('updataPassword')" >
+										<i class="icon-double-angle-right"></i>
+										修改密码
+									</a>
+								</li>
+							
+								<li id="XTSS_BBGL">
+									<a onclick="changesrc('TiaoJianChaXunBBGL')" >
+										<i class="icon-double-angle-right"></i>
+										版本管理
+									</a>
+								</li>
+								
+								<li id="XTSS_BZZX">
+									<a onclick="changesrc('TiaoJianChaXunBZZX')" >
+										<i class="icon-double-angle-right"></i>
+										帮助中心
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+						
+						
+					</li>
+				</ul><!-- /.nav-list -->
+				</div >
+
+		<script src="assets/js/jquery-3.2.1.js"></script>
+		
+
+		
+
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+	
+		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/jquery.slimscroll.min.js"></script>
+		<script src="assets/js/jquery.easy-pie-chart.min.js"></script>
+		<script src="assets/js/jquery.sparkline.min.js"></script>
+		<script src="assets/js/flot/jquery.flot.min.js"></script>
+		<script src="assets/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="assets/js/flot/jquery.flot.resize.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+		<script src="assets/js/JS5941/quanxianpanduan.js"></script>
+		<!-- inline scripts related to this page -->
+
+	
+</div>
+</body>
+</html>
+
+<script>
+
+window.onload= function(){
+quanxianpanduan();
+
+var username = localStorage.getItem("userName");
+var issuperadmin = localStorage.getItem("issuperadmin");
+
+
+if(username=="" || username==null || username==undefined){
+document.getElementById("loginmessage").innerHTML = "您好！请登录";
+document.getElementById("loginstate").style.display="block";
+document.getElementById("zhuxiao").style.display="none";
+}else{
+document.getElementById("loginmessage").innerHTML = "尊敬的："+username;
+document.getElementById("loginstate").style.display="none";
+document.getElementById("zhuxiao").style.display="block";
+
+}
+}
+
+function zhuxiao(){
+localStorage.setItem('shopid','');
+localStorage.setItem('superid','')
+localStorage.setItem('userName','');
+localStorage.setItem('usermessage','');
+localStorage.setItem('issuperadmin','');
+localStorage.setItem('jueseid','');
+location.reload();
+}
+</script>
+
+<script>
+	function changesrc(tosrc){
+	var srcss = tosrc+".html";
+		document.getElementById("myiframe").src=srcss;
+	}
+	
+	
+	function closedaohangjfgl(){
+		document.getElementById("JFGLa").click();
+	}
+
+	function closedaohangspydd(){
+		 document.getElementById("SPYDDa").click();
+	}
+	
+	function closedaohangdpgl(){
+		 document.getElementById("DPGLa").click();
+	}
+	
+	function closedaohangyhgl(){
+		 document.getElementById("YHGLa").click();
+	}
+	
+	function closedaohangcxhd(){
+		 document.getElementById("CXHDa").click();
+	}
+	
+	function closedaohangbbgl(){
+		 document.getElementById("BBGLa").click();
+	}
+	
+	function closedaohangjszx(){
+		 document.getElementById("JSZXa").click();
+	}
+	
+	function closedaohangqxgl(){
+		 document.getElementById("QXGLa").click();
+	}
+	
+	function closedaohangtpgl(){
+		 document.getElementById("TPGLa").click();
+	}
+	
+	function closedaohangjygl(){
+		 document.getElementById("PJYFKa").click();
+	}
+	
+	function closedaohangkcgl(){
+		 document.getElementById("KCGLa").click();
+	}
+	
+	function closedaohangyfx(){
+		 document.getElementById("YFXa").click();
+	}
+	
+	function closedaohangbygz(){
+		 document.getElementById("BYGZa").click();
+	}
+	
+	function closedaohangmmgl(){
+		 document.getElementById("MMGLa").click();
+	}
+	
+	function closedaohangyjtx(){
+		 document.getElementById("YJTXa").click();
+	}
+	
+	function closedaohangjxsgl(){
+		 document.getElementById("JXSGLa").click();
+	}
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

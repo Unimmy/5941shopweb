@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+		<style>
+			#userphone{background:#fff;width:900px;margin:auto;position:relative;padding:120px;left:50%;border:solid #ccc 1px;margin-left:-450px}
+		</style>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								权限管理
+								<small>
+									<i class="icon-double-angle-right"></i>
+									用户角色及授权
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+				
+
+								<div class="row">
+									<div class="col-xs-12">
+										<form id="quanxianform">
+									
+											<input type="hidden" value="1" name="page" id="thispage"/>
+											<input type="hidden" value="" name="uname" id="thisuname"/>
+											<input type="hidden" value="" name="UID" id="thisuid"/>
+											
+											<input type="hidden" value="10000" name="rows" id="thispage"/>
+										</form>	
+										<div style=" float:left">
+											<button type="button" onclick="addjuese('GetSystemAllQuanxian2')" class="btn btn-danger" ><i class="icon-plus"></i>添加角色</button>
+										</div>
+									
+										<div style="width:380px;height:60px;margin:auto">
+											<input style="height:41px;width:260px "type="text" id="saerchquanxianzu" placeholder="不想找，搜索一下吧！"><input onclick="MHsearchQXZU()" class="btn btn-primary" type="button" value="OK"/>
+										</div>
+										
+										<div class="table-header">
+											5941权限管理
+										</div>
+
+										<div class="table-responsive">
+											
+												<form id="addquanxianform">
+												<div id="allmessage">
+												
+												</div>
+												
+												<input type="hidden" id="organizationid" name= "organization">
+												</form>
+												
+										</div>
+										
+									</div>
+								</div>
+								<button class="btn btn-success" onclick="openlistpage()">用户授权</button>
+								<hr>
+								
+			</div><!-- /.main-container-inner -->
+			
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+
+		<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		
+	<div style="display:none" id="userphone">
+				
+			</div>
+			<div id="quanxianlist" style="padding-left:5px;display:none;width:810px;border:1px solid #ccc;background:#fff;position:absolute;left:50%;top:10px;margin-left:-400px">
+				<div style="width:805px;height:45px;background:#fff"><span class="btn btn-danger"  onclick="closequanxianPage()" style="float:right">X</span></div>
+				<div id="allquanxiandiv">
+					<div class="table-responsive" >
+											
+												<form id="addquanxianform">
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">商品与订单</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<!-- <input type="checkbox" name="quanxian" id="commodity_selectBySelect" onchange="addquanxiantolist('','/commodity/selectBySelect')" />-->
+														<input type="checkbox" name="quanxian" id="boxid_commodity_selectBySelect" onchange="addquanxiantolist('商品查询','/commodity/selectBySelect','_commodity_selectBySelect')" />
+														商品查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_commodityback_readCommodityExcel" onchange="addquanxiantolist('商品导入','/commodityback/readCommodityExcel','_commodityback_readCommodityExcel')" />
+														商品导入
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_selectbytype" onchange="addquanxiantolist('订单列表','/orders/selectbytype','_orders_selectbytype')" />
+														订单列表
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_selectPurchase_newselect" onchange="addquanxiantolist('订单查询','/web/selectPurchase/newselect','_web_selectPurchase_newselect')" />
+														订单查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_selectPurchase_newexpor" onchange="addquanxiantolist('订单查询导出','/web/selectPurchase/newexpor','_web_selectPurchase_newexpor')" />
+														订单查询导出
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_ListReturn" onchange="addquanxiantolist('退货列表','/orders/ListReturn','_orders_ListReturn')" />
+														退货列表
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_commodityback_readCommodityExcel" onchange="addquanxiantolist('导入商品','/commodityback/readCommodityExcel','_commodityback_readCommodityExcel')" /> 
+														导入商品
+														</div>
+													
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_commodity_readCommodityExcel" onchange="addquanxiantolist('导入规格','/commodity/readCommodityExcel','_commodity_readCommodityExcel')" />
+														导入规格
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_commodity_updatecommodity" onchange="addquanxiantolist('商品修改','/commodity/updatecommodity','_commodity_updatecommodity')" />
+														商品修改
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_Commodity_expor" onchange="addquanxiantolist('导出商品编号','/web/Commodity/expor','_web_Commodity_expor')" />
+														导出商品编号
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_normal" onchange="addquanxiantolist('上架商品','/stock/normal','_stock_normal')" />
+														上架商品
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_Lowerframe" onchange="addquanxiantolist('下架商品','/stock/Lowerframe','_stock_Lowerframe')" />
+														下架商品
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_postfeenumberex" onchange="addquanxiantolist('导入运单号','/orders/postfeenumberex','_orders_postfeenumberex')" />
+														导入运单号
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_Collectgoods1" onchange="addquanxiantolist('到货','/orders/Collectgoods1','_orders_Collectgoods1')" />
+														到货
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_Delivergoods1" onchange="addquanxiantolist('出货','/orders/Delivergoods1','_orders_Delivergoods1')" />
+														出货
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_Delivergoods2" onchange="addquanxiantolist('接单','/orders/Delivergoods2','_orders_Delivergoods2')" />
+														接单
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_Delivergoods3" onchange="addquanxiantolist('拒单','/orders/Delivergoods3','_orders_Delivergoods3')" />
+														拒单
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_Return" onchange="addquanxiantolist('退货','/orders/Return','_orders_Return')" />
+														退货
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Returngoods_shoplist" onchange="addquanxiantolist('单品退货列表','/Returngoods/shoplist','_Returngoods_shoplist')" />
+														单品退货列表
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Returngoods_Agree" onchange="addquanxiantolist('单品同意退货','/Returngoods/Agree','_Returngoods_Agree')" />
+														单品同意退货
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Returngoods_refuse" onchange="addquanxiantolist('单品拒绝退货','/Returngoods/refuse','_Returngoods_refuse')" />
+														单品拒绝退货
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Returngoods_retreat" onchange="addquanxiantolist('单品退仓','/Returngoods/retreat','_Returngoods_retreat')" />
+														单品退仓
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Returngoods_retreat1" onchange="addquanxiantolist('单品收仓','/Returngoods/retreat1','_Returngoods_retreat1')" />
+														单品收仓
+														</div>
+													</div>
+												</div>
+												
+											<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">报表管理</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_Returngoods_select" onchange="addquanxiantolist('退货报表查询','/web/Returngoods/select','_web_Returngoods_select')" />										
+														退货报表查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_Returngoods_expor" onchange="addquanxiantolist('退货报表导出','/web/Returngoods/expor','_web_Returngoods_expor')" />
+														退货报表导出
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_data_shopMember" onchange="addquanxiantolist('统计报表查询','/data/shopMember','_data_shopMember')" />
+														统计报表查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_data_exportShopMember" onchange="addquanxiantolist('统计报表导出','/data/exportShopMember','_boxid_data_exportShopMember')" />
+														统计报表导出
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Orderrelevance_selectByshopORmember" onchange="addquanxiantolist('交易订单查询','/Orderrelevance/selectByshopORmember','_Orderrelevance_selectByshopORmember')" />
+														交易订单查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_orders_selectbyclerk" onchange="addquanxiantolist('店员业绩查询','/orders/selectbyclerk','_orders_selectbyclerk')" />
+														店员业绩查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_data_AccountSelect" onchange="addquanxiantolist('财务报表查询','/data/AccountSelect','_data_AccountSelect')" />
+														财务报表查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_data_Account" onchange="addquanxiantolist('财务报表导出','/data/Account','_data_Account')" />
+														财务报表导出
+														</div>
+														
+													</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Orderrelevance_select" onchange="addquanxiantolist('销售报表查询','/Orderrelevance/select','_Orderrelevance_select')" />
+														销售报表查询
+														</div>
+														
+													</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Orderrelevance_exportOrderrelevance" onchange="addquanxiantolist('销售报表导出','/Orderrelevance/exportOrderrelevance','_Orderrelevance_exportOrderrelevance')" />
+														销售报表导出
+														</div>
+														
+													</div>
+												</div>
+												 
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">店铺管理</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_addto" onchange="addquanxiantolist('添加代理商','/shop/addto','_shop_addto')" />
+														添加代理商
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_add" onchange="addquanxiantolist('添加店铺','/shop/add','_shop_add')" />
+														添加店铺
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shopback_readShopExcel" onchange="addquanxiantolist('店铺导入','/shopback/readShopExcel','_shopback_readShopExcel')" />
+														店铺导入
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shopback_selectall" onchange="addquanxiantolist('导入预览','/shopback/selectall','_shopback_selectall')" />
+														导入预览
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_selectall" onchange="addquanxiantolist('店铺列表','/shop/selectall','_shop_selectall')" />
+														店铺列表
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Friends_update" onchange="addquanxiantolist('推荐人移交','/Friends/update','_Friends_update')" />
+														推荐人移交
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Clerk_add" onchange="addquanxiantolist('添加店员','/Clerk/add','_Clerk_add')" />
+														添加店员
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_selectShop" onchange="addquanxiantolist('下级查询','/web/selectShop','_web_selectShop')" />
+														下级查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_selectMember" onchange="addquanxiantolist('上级查询','/web/selectMember','_web_selectMember')" />
+														上级查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Friends" onchange="addquanxiantolist('推荐人查询','/Friends','_Friends')" />
+														推荐人查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;"> 
+														<input type="checkbox" name="quanxian" id="boxid_web_clerk2" onchange="addquanxiantolist('导购归属','/web/clerk2','_web_clerk2')" />
+														导购归属
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shopback_save" onchange="addquanxiantolist('导入保存','/shopback/save','_shopback_save')" />
+														导入保存
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_selectalladmin" onchange="addquanxiantolist('关键字搜索','/shop/selectalladmin','_shop_selectalladmin')" />
+														关键字搜索
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_close" onchange="addquanxiantolist('关闭店铺','/shop/close','_shop_close')" />
+														关闭店铺
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_open" onchange="addquanxiantolist('开启店铺','/shop/open','_shop_open')" />
+														开启店铺
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_select" onchange="addquanxiantolist('店铺详情','/shop/select','_shop_select')" />
+														店铺详情
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_shop_update" onchange="addquanxiantolist('店铺修改','/shop/update','_shop_update')" />
+														店铺修改
+														</div>
+													</div>
+												</div>
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">经销商/店主</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Identity_select" onchange="addquanxiantolist('查询经销商/店主','/Identity/select')" />
+														查询经销商/店主
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Identity_add" onchange="addquanxiantolist('添加经销商/线上店主','/Identity/add','_Identity_add')" />
+														添加经销商/线上店主
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Identity_end" onchange="addquanxiantolist('结束经销商/线上店主','/Identity/end','_Identity_end')" />
+														结束经销商/线上店主
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Identity_Close" onchange="addquanxiantolist('取消经销商/线上店主','/Identity/Close','_Identity_Close')" />
+														取消经销商/线上店主
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Identity_stop" onchange="addquanxiantolist('停用/启用/审核','/Identity/stop','_Identity_stop')" />
+														停用/启用/审核
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Identity_Friends" onchange="addquanxiantolist('经销商/线上店主下级查询','/Identity/Friends','_Identity_Friends')" />
+														经销商/线上店主下级查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Identity_selectsu" onchange="addquanxiantolist('经销商/线上店主归属查询','/Identity/selectsu','_Identity_selectsu')" />
+														经销商/线上店主归属查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Programme_add" onchange="addquanxiantolist('添加结算规则','/Programme/add','_Programme_add')" />
+														添加结算规则
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Programme_select" onchange="addquanxiantolist('结算规则查询','/Programme/select','_Programme_select')" />
+														结算规则查询
+														</div>
+													
+													</div>
+												</div>
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">用户管理</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_member_selectmember" onchange="addquanxiantolist('用户列表查询','/member/selectmember','_member_selectmember')" />
+														用户列表查询
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_member_updatestate" onchange="addquanxiantolist('用户状态修改','/member/updatestate','_member_updatestate')" />
+														用户状态修改
+														</div>
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_auths_selectbymember" onchange="addquanxiantolist('用户角色查询','/auths/selectbymember','_auths_selectbymember')" />
+														用户角色查询
+														</div>
+														
+													</div>
+												</div>
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">促销活动</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Promotion_add" onchange="addquanxiantolist('活动添加','/Promotion/add','_Promotion_add')" />
+														活动添加
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Promotion_select" onchange="addquanxiantolist('活动查询','/Promotion/select','_Promotion_select')" />
+														活动查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Coupon_select" onchange="addquanxiantolist('优惠券查询','/Coupon/select','_Coupon_select')" />
+														优惠券查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Coupon_add" onchange="addquanxiantolist('优惠券添加','/Coupon/add','_Coupon_add')" />
+														优惠券添加
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Coupon_delete" onchange="addquanxiantolist('优惠券删除','/Coupon/delete','_Coupon_delete')" />
+														优惠券删除
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_ms_select" onchange="addquanxiantolist('优惠券删除','/ms/select','_ms_select')" />
+														秒杀查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_ms_add" onchange="addquanxiantolist('秒杀添加','/ms/add','_ms_add')" />
+														秒杀添加
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_ms_end" onchange="addquanxiantolist('秒杀结束','/ms/end','_ms_end')" />
+														秒杀结束
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_ys_select" onchange="addquanxiantolist('预售查询','/ys/select','_ys_select')" />
+														预售查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_ys_add" onchange="addquanxiantolist('预售添加','/ys/add','_ys_add')" />
+														预售添加
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_ys_end" onchange="addquanxiantolist('预售结束','/ys/end','_ys_end')" />
+														预售结束
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_pdd_select" onchange="addquanxiantolist('拼团查询','/pdd/select','_pdd_select')" />
+														拼团查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_pdd_add" onchange="addquanxiantolist('拼团添加','/pdd/add','_pdd_add')" />
+														拼团添加
+														</div>
+														
+													</div>
+												</div>
+												
+												
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">结算中心</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_Commission_select2" onchange="addquanxiantolist('结算报表查询','/web/Commission/select2','_web_Commission_select2')" />
+														结算报表查询
+														</div>
+														
+													</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_web_EXRecommend2" onchange="addquanxiantolist('结算报表导出','/web/EXRecommend2','_web_EXRecommend2')" />
+														结算报表导出
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_OrdersRule_add" onchange="addquanxiantolist('结算规则设置','/OrdersRule/add','_OrdersRule_add')" />
+														结算规则设置
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_OrdersRule_select" onchange="addquanxiantolist('结算规则查询','/OrdersRule/select','_OrdersRule_select')" />
+														结算规则查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_data_SumRecommend2" onchange="addquanxiantolist('佣金合计查询','/data/SumRecommend2','_data_SumRecommend2')" />
+														佣金合计查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_data_SumRecommend2Excel" onchange="addquanxiantolist('佣金合计导出','/data/SumRecommend2Excel','_data_SumRecommend2Excel')" />
+														佣金合计导出
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Recommend2_list" onchange="addquanxiantolist('佣金明细查询','/Recommend2/list','_Recommend2_list')" />
+														佣金明细查询
+														</div>
+														
+													</div>
+													
+									
+													
+												</div>
+												
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">图片管理</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Advertisement_select" onchange="addquanxiantolist('图片查询','/Advertisement/select','_Advertisement_select')" />
+														图片查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Advertisement_add" onchange="addquanxiantolist('图片添加','/Advertisement/add','_Advertisement_add')" />
+														图片添加
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Advertisement_update" onchange="addquanxiantolist('图片修改','/Advertisement/update','_Advertisement_update')" />
+														图片修改
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Advertisement_delete" onchange="addquanxiantolist('图片删除','/Advertisement/delete','_Advertisement_delete')" />
+														图片删除
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Advertisement_maxExcel" onchange="addquanxiantolist('导入大类','/Advertisement/maxExcel','_Advertisement_maxExcel')" />
+														导入大类
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Advertisement_minExcel" onchange="addquanxiantolist('导入细类','/Advertisement/minExcel','_Advertisement_minExcel')" />
+														导入细类
+														</div>
+														
+													</div>
+													
+												</div>
+												
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">库存管理</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_selectall" onchange="addquanxiantolist('库存查询','/stock/selectall','_stock_selectall')" />
+														库存查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_readStockExcel" onchange="addquanxiantolist('库存导入','/stock/readStockExcel','_stock_readStockExcel')" />
+														库存导入
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_add" onchange="addquanxiantolist('库存添加','/stock/add','_stock_add')" />
+														库存添加
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_updatebycommodity" onchange="addquanxiantolist('条件上下架','/stock/updatebycommodity','_stock_updatebycommodity')" />
+														条件上下架
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_updatebyshopcode" onchange="addquanxiantolist('一键上下架','/stock/updatebyshopcode','_stock_updatebyshopcode')" />
+														一键上下架
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_stock_update" onchange="addquanxiantolist('库存修改','/stock/update','_stock_update')" />
+														库存修改
+														</div>
+														
+													</div>
+													
+												</div>
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">佣金提现</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Promotion_add" onchange="addquanxiantolist('支付宝列表查询','/zfb/list','_Promotion_add')" />
+														支付宝列表查询
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_Putforward_list" onchange="addquanxiantolist('提现列表查询','/Putforward/list','_Putforward_list')" />
+														提现列表查询
+														</div>
+														
+													</div>
+													
+													
+												</div>
+												
+												
+												<div style="clear:both;padding:20px 0px;">
+													<div style="width:220px;height:45px;line-height: 45px;font-size:22px; text-align: justify;text-align-last: justify;padding: 0px 15px;">系统设置</div>
+													<div style="line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_member_update" onchange="addquanxiantolist('密码修改','/member/update','_member_update')" />
+														密码修改
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_version_add" onchange="addquanxiantolist('版本号添加','/version/add','_version_add')" />
+														版本号添加
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_version_add" onchange="addquanxiantolist('版本号修改','/version/update','_version_add')" />
+														版本号修改
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_version_delete" onchange="addquanxiantolist('版本号删除','/version/delete','_version_delete')" />
+														版本号删除
+														</div>
+														
+													</div>
+													
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_help_selectall" onchange="addquanxiantolist('帮助中心查询','/help/selectall','_help_selectall')" />
+														帮助中心查询
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_help_add" onchange="addquanxiantolist(帮助中心添加'','/help/add','_help_add')" />
+														帮助中心添加
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_help_update" onchange="addquanxiantolist('帮助中心修改',/help/update','_help_add')" />
+														帮助中心修改
+														</div>
+														
+													</div>
+													<div style="float:left;line-height: 45px;">
+														<div style="float:left;line-height: 45px;margin: 0px 15px;">
+														<input type="checkbox" name="quanxian" id="boxid_help_delete" onchange="addquanxiantolist('帮助中心删除','/help/delete','_help_delete')" />
+														帮助中心删除
+														</div>
+														
+													</div>
+													
+												</div>
+												
+												<input type="hidden" id="organizationid" name= "organization">
+												</form>
+												
+										</div>
+					
+					
+				 	<br><br>
+          			<div><span onclick="savequanxian()" style="padding:5px 45px" class="btn btn-success">确 定</span></div>
+				</div>
+			
+			</div>
+</body>
+</html>
+<script>
+window.onload= function(){
+	getquanxianzu();
+}
+
+</script>
+<script src="assets/js/JS5941/public.js"></script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/GetAllzu.js"> </script>

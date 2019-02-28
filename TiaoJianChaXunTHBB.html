@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+	
+
+	
+
+		 
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								按条件查询退货报表
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<form class="form-horizontal" id="thbbforms">
+								
+										
+											<input type="hidden" style="width:45px" value="1" name="page" id="thispage"/>
+											
+											<input type="hidden" style="width:45px" value="5" name="rows" id="thisrows"/>
+										
+								
+									<div style="float:left;margin: 10px 15px" >
+										<span style=" background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">退货编号</span>
+										<input style="height:29px" type="text" placeholder="请输入退货编号 " name="id"/>
+										
+									</div>
+
+									<div style="float:left;margin: 10px 15px" >
+										<span style=" background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">店铺编号</span>
+										<input style="height:29px" type="text"placeholder="请输入店铺编号" name="code"/>
+											
+										
+									</div>
+
+									<div style="float:left;margin: 10px 15px" >
+										<span style=" background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">开始时间</span>
+										<input style="height:29px" type="date"  onchange=" changestartimess()" id="changetimess" />
+											<input type="hidden" id="starttimess" name="star" />									
+										
+									</div>
+
+									<div style="float:left;margin: 10px 15px" >
+										<span style=" background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">结束时间</span>
+										<input style="height:29px" type="date"  onchange="  changeendtimess()" id="changeendtotimess" />
+											<input type="hidden" id="endtimess" name="end" />									
+										
+									</div>
+									<input type="hidden" id="unamess" value="" name="uname" />
+									<input type="hidden" id="uidss" value="" name="UID" />
+
+									
+
+								</form>
+								<a id="daochuannue"></a>
+								
+							</div><!-- /.col -->
+							
+							<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>序号</th>
+														<th>商品名称 </th>
+														<th>申请退货时间</th>
+														<th>是否同意退货</th>
+														<th>商品编号</th>
+														<th>用户ID </th>
+														<th>数量 </th>															
+														<th>售价 </th>
+														<th>售价汇总</th>
+														<th>退货原因</th>
+														<th>退价</th>
+														<th>退价汇总 </th>
+														<th>说明 </th>
+														<th>店铺编号</th>
+														<th>店铺名称 </th>
+											
+													</tr>
+												</thead>
+
+												<tbody id="allmessage">
+																									
+												</tbody>
+											</table>
+											<div style="float:left;padding-left:25%;padding-right:2%">
+												每页显示
+											<select onchange="setrows()" id="thisrowsset">
+												<option>5</option>
+												<option>10</option>
+												<option>15</option>
+												<option>20</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+												<option>500</option>
+											</select>
+											条数据
+										</div>
+										
+											
+											<div style="float:left;width:400px;height:50px;margin:auto"  id="annuediv">
+											
+											</div>
+												<div style="float:left;margin-left:20px;">
+											到第
+											<input  onchange="setpage()" type="text" style="width:45px;height:30px;text-align: center;" value="1" id="thispageset"/>
+											页
+											<a id="okannue4"></a>
+										
+										</div>
+											<div style="display:none;width:380px;height:320px;background:#ccc;position:absolute;top:180px;left:50%;margin-left:-140px;padding:25px" id="hiddendaochu">
+												<div style="position:relative;top:-25px;left:313px"><button onclick="hiddendiv()" class="btn">X</button></div>
+												<table>
+												
+													<form action=" http://123.207.147.134:8091/web/Returngoods/expor" method="GET">
+													<tr>
+														<td>店铺编号 &nbsp &nbsp &nbsp </td><td><input type="text" name="id" id="thisid" /></td>
+													</tr>
+													<tr>
+														<td>退货编号 &nbsp &nbsp &nbsp </td><td><input type="text" name="code" id="thiscode" /></td>
+													</tr>
+													<tr>
+														<td>开始时间 &nbsp &nbsp &nbsp </td><td><input type="date"  onchange=" tijiaostarttime()" id="kaistime" /><input type="hidden" name="star" id="okkaistime" /></td>
+													</tr>
+													<tr>
+														<td>结束时间 &nbsp &nbsp &nbsp </td><td><input type="date"  onchange="tijiaoendtime()" id="jiestime" /><input type="hidden" name="end" id="okkaistime" /></td>
+													</tr>
+													<tr>
+														<td>
+															导出条数 &nbsp &nbsp &nbsp </td><td><input type="text" name="rows" id="thisdata" />
+															<input type="hidden" value="" name="uname" id="dcunamesss"/>
+															<input type="hidden" value="" name="UID" id="dcuidsss"/>
+															
+																
+														</td>
+													</tr>
+													<tr>
+														<td> </td><td><input onmouseover="getunameuid()" type="submit" value="确定导出" /></td>
+													</tr>
+													
+													</form>
+													
+												</table>
+											
+											<div>
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+	
+			</div><!-- /.main-container-inner -->
+
+			
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+
+		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/chosen.jquery.min.js"></script>
+		<script src="assets/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="assets/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="assets/js/date-time/moment.min.js"></script>
+		<script src="assets/js/date-time/daterangepicker.min.js"></script>
+		<script src="assets/js/bootstrap-colorpicker.min.js"></script>
+		<script src="assets/js/jquery.knob.min.js"></script>
+		<script src="assets/js/jquery.autosize.min.js"></script>
+		<script src="assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="assets/js/jquery.maskedinput.min.js"></script>
+		<script src="assets/js/bootstrap-tag.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		
+	
+</body>
+</html>
+<script>
+window.onload= function(){
+	showAll();
+}
+</script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/TiaoJianChaXunTHBB.js"> </script>
+ <script src="assets/js/JS5941/public.js"></script>

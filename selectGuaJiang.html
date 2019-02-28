@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<link rel="stylesheet" href="assets/css/5941CSS/selectGuaJiang.css">
+	</head>
+
+	<body ondragstart="return false">
+
+		
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+									刮奖活动
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+							
+						</div><!-- /.page-header -->
+						<div class="page-header">
+							<h1>
+								<span class="btn btn-danger" onclick="openDiv()"> 添加奖品</span>
+							</h1>
+							<h1>
+									<span class="btn btn-primary" onclick="openChouJiangJilv()">抽奖记录</span>
+							</h1>
+							<h1>
+									<span class="btn btn-success" onclick="selectJp()">查询奖品</span>
+							</h1>
+							<h1>
+									<span class="btn btn-info" onclick="openCjaddress()">查询收货地址</span>
+							</h1>
+							<h1>
+									<span class="btn btn-success" onclick="openselectjp()">实物奖品发放情况查询</span>
+							</h1>
+							<h1>
+									<span class="btn btn-danger" onclick="openDiv2()">指定奖池免费抽奖次数</span>
+							</h1>
+							<h1>
+									<span class="btn btn-primary" onclick="openkeyAll()"> 查询指定时间段内可用的奖池</span>
+							</h1>
+							<h1>
+									<span class="btn btn-warning" onclick="openkeySystem()"> 查询系统当前可用的奖池</span>
+							</h1>
+						</div><!-- /.page-header -->
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<div class="row">
+						
+								<div class="col-xs-12">	
+									<div class="table-header" id="tablehead">
+									
+									</div>
+									<div class="table-responsive" id="tableresponsive">
+									
+									</div>
+								</div>
+								
+
+								<div id="addyunfeixianpage" style="display:none;position:absolute;left:50%;top:0px;z-index:22;background:#fff;margin-left:-400px;border:1px solid #ccc;width:800px;padding-left:150px;padding-bottom:80px">
+									<div style="height:150px">
+									<span style="float:right" onclick="closePage();" class="btn btn-danger">X</span>
+									</div>
+					 
+									<form class="form-horizontal" role="form" id="addGuaJiangForm" >
+											<input type="hidden" name="uname" id="unamess">
+											<input type="hidden" name="UID" id="uid">
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 奖池编号 <span class="red"> *</span> </label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" name="bh" id="add_bh" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 中奖概率<span class="red"> *</span> </label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"  id="add_num" name="num" placeholder="万分之几,值0-10000" />								
+										</div>
+									</div>
+
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 奖品标题<span class="red"> *</span> </label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" name="title"  id="add_title"/>								
+										</div>
+									</div>
+								
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 奖池说明</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"  id="add_title_su" name="title_su" placeholder="第一次必填，后面可空"/>								
+										</div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 虚拟物品编号 </label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"  id="add_xn_id" name="xn_id" placeholder="暂时只支持优惠卷编号"/>								
+										</div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6">活动开始时间 </label>
+                                        <div class="col-sm-9">
+                                            <input type="date" onchange="changestrattime()" id="strnowDate" />
+                                            <input type="hidden" name="star" id="strdate" />       
+                                            </div>
+									</div>
+
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 活动结束时间 </label>
+										<div class="col-sm-9">
+                                            <input type="date" onchange="changeendtime()" id="endnowDate" />
+                                            <input type="hidden" name="end" id="enddate" />
+                                        </div>
+									</div>
+
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 积分抽奖</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"  id="add_m_num" name="m_num" placeholder="如果使用积分抽奖，所需积分是多少（第一个奖品生效，后面会被忽略）"/>								
+										</div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 网络图片地址</label>
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"  id="add_imagepath" name="imagepath" placeholder="如果是网络图片，则忽略文件"/>								
+										</div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 奖品图片<span class="red"> *</span> </label>
+										<div class="col-sm-9">
+                                            <input type="file" class="col-xs-10 col-sm-5" name="a"  id="add_a"/>					
+										</div>
+                                    </div>
+                                    
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6">  </label>
+
+										<div class="col-sm-9">
+											<input type="button" onclick="addJiangPing()" class="btn btn-success" value="确 定" name="code1" />							
+										</div>
+										
+									</div>
+								</form>
+						</div>								
+			</div><!-- /.main-container-inner -->
+		</div><!-- /.main-container -->
+		<div id="addfreenum" style="display:none ;position:absolute;left:50%;top:200px;z-index:22;background:#fff;margin-left:-400px;border:1px solid #ccc;width:800px;padding-left:150px;padding-bottom:80px">
+			<div style="height:150px">
+			<span style="float:right" onclick="closePage2();" class="btn btn-danger">X</span>
+			</div>
+			<form class="form-horizontal" role="form" id="addfree" >
+					<input type="hidden" name="uname" id="username">
+					<input type="hidden" name="UID" id="uide">
+					<input type="hidden" name="type" value="3">
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 奖池编号 <span class="red"> *</span> </label>
+				<div class="col-sm-9">
+					<input type="text" class="col-xs-10 col-sm-5" name="jc_bh"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 指定账号 <span class="red"> *</span> </label>
+				<div class="col-sm-9">
+					<input type="text" class="col-xs-10 col-sm-5" name="phone"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 免费抽奖次数 <span class="red"> *</span> </label>
+				<div class="col-sm-9">
+					<input type="text" class="col-xs-10 col-sm-5" name="num"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label no-padding-right" for="form-field-6">  </label>
+				<div class="col-sm-9">
+				<input type="button" onclick="addfreenum()" class="btn btn-success" value="确 定" name="code1" />							
+			</div>	
+			</div>
+		</form>
+</div>
+<script>
+	window.onload=function(){
+		openChouJiangJilv()
+	}
+</script>
+</body>
+</html>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/selectGuaJiang.js"> </script>
+<script src="assets/js/JS5941/public.js"></script>

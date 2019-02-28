@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		
+	</head>
+
+	<body>
+
+		
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+									拼团
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+							
+						</div><!-- /.page-header -->
+						<div class="page-header">
+							<h1>
+								<span class="btn btn-danger" onclick="openDiv()"> 添 加   </span>
+							</h1>
+							
+						</div><!-- /.page-header -->
+ 					
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+				
+
+								<div class="row">
+									<div class="col-xs-12">
+										<div style="margin-right:10px;width:220px;float:left">
+											<span style=" background:#ededed;text-align:center;line-height:42px;margin-left:15px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">开始时间</span>
+											<input style="height:42px" type="date" id="starDate" />
+										</div>
+										<div style="margin-right:10px;width:220px;float:left">
+								    		<span style=" background:#ededed;text-align:center;line-height:42px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">结束时间</span>
+											<input style="height:42px" type="date" id="endDate" />
+										</div>
+									 	<div style="margin-right:10px;width:195px;float:left">
+								    		<span style=" background:#ededed;text-align:center;line-height:42px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">名称</span>
+											<input style="height:42px;width:120px" type="text" id="namess" />
+										</div>
+										<div style="margin-right:10px;width:195px;float:left">
+								    		<span style=" background:#ededed;text-align:center;line-height:42px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">编号</span>
+											<input style="height:42px;width:120px" type="text" id="bianhaos" />
+										</div>
+										<div style="margin-right:10px;width:195px;float:left">
+								    		<span style=" background:#ededed;text-align:center;line-height:42px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">条码</span>
+											<input style="height:42px;width:120px" type="text" id="tiaomass" />
+										</div>
+										<span id="cahxunannue" style="display:block;float:left;margin-right:15px" class="btn btn-primary" onclick="ShowAll()">查询</span>  
+										 
+										<div class="table-header">
+											
+										</div><br><br><br>
+
+										<div class="table-responsive">
+											<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr><th>序号</th>
+														<th>拼团编号</th>
+														<th>类型</th>
+														<th>名称</th>
+														<th>开始时间</th>
+														<th>结束时间</th>
+														<th>数量</th>
+														<th>商品编号</th>
+														<th>条码</th>
+														<th>价格</th>
+														<th>图片</th>
+													  
+													</tr>
+												</thead>
+
+												<tbody id="allmessage">
+													
+																									
+												</tbody>
+											
+											</table>
+												<div style="float:left;padding-left:30%;padding-right:2%">
+												每页显示
+											<select id="thisrows">
+									
+											<option>5</option>
+												<option>10</option>
+												<option>15</option>
+												<option>20</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+												<option>500</option>
+											</select>
+											条数据
+										</div>
+										
+									
+										
+										<div style="width:390px;height:50px;margin:auto;float:left;"  id="annuediv">
+											
+										</div>
+										
+										<div style="float:left;margin-left:20px;">
+											到第
+											<input type="text" style="width:45px;height:30px;text-align: center;" value="1" id="thispage"/>
+											页
+											
+										<input type="button" onclick="ShowAll()" class="btn btn-success" value="确定"  />
+										</div>
+										</div>
+									</div>
+								</div>
+
+								<div id="addyunfeixianpage" style="display:none ;position:absolute;left:50%;top:0px;z-index:22;background:#fff;margin-left:-300px;border:1px solid #ccc;width:800px;padding-left:150px;padding-bottom:80px">
+									<div style="height:150px">
+									<span style="float:right" onclick="closePage();ShowAll()" class="btn btn-danger">X</span>
+									
+									</div>
+									<p class="red">此接口条码与编号最少选一个，编号优先级大于条码，如果选择了编号，数量为每个条码<br>的数量，而不是总数量</p>
+									<form class="form-horizontal" role="form" id="addMiaoShaForm" >
+										<input type="hidden" value="" id="setuid" name="UID" />
+										<input type="hidden" value="" id="setuname" name="uname" />		
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 名称 <span class="red"> *</span> </label>
+										
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5" name="title"/>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6"> 数量 <span class="red"> *</span> </label>
+
+										<div class="col-sm-9">
+											<input type="text" class="col-xs-10 col-sm-5"  name="num" />
+																				
+										</div>
+										
+									</div>
+
+									<div class="form-group"  id="zhekoudiv">
+										<label class="col-sm-3 control-label no-padding-right" for="form-input-readonly"> 开始时间<span class="red"> *</span> </label>
+
+										<div class="col-sm-9">
+											<input type="date" class="col-xs-10 col-sm-5"  id="MSstartTimes" /><br><br>
+											<select id="S_S" > 
+												
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												
+											</select>
+											时
+											<select id="S_F">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												<option>24</option>
+												<option>25</option>
+												<option>26</option>
+												<option>27</option>
+												<option>28</option>
+												<option>29</option>
+												<option>30</option>
+												<option>31</option>
+												<option>32</option>
+												<option>33</option>
+												<option>34</option>
+												<option>35</option>
+												<option>36</option>
+												<option>37</option>
+												<option>38</option>
+												<option>39</option>
+												<option>40</option>
+												<option>41</option>
+												<option>42</option>
+												<option>43</option>
+												<option>44</option>
+												<option>45</option>
+												<option>46</option>
+												<option>47</option>
+												<option>48</option>
+												<option>49</option>
+												<option>50</option>
+												<option>51</option>
+												<option>52</option>
+												<option>53</option>
+												<option>54</option>
+												<option>55</option>
+												<option>56</option>
+												<option>57</option>
+												<option>58</option>
+												<option>59</option>
+											</select>分
+											<select id="S_M">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												<option>24</option>
+												<option>25</option>
+												<option>26</option>
+												<option>27</option>
+												<option>28</option>
+												<option>29</option>
+												<option>30</option>
+												<option>31</option>
+												<option>32</option>
+												<option>33</option>
+												<option>34</option>
+												<option>35</option>
+												<option>36</option>
+												<option>37</option>
+												<option>38</option>
+												<option>39</option>
+												<option>40</option>
+												<option>41</option>
+												<option>42</option>
+												<option>43</option>
+												<option>44</option>
+												<option>45</option>
+												<option>46</option>
+												<option>47</option>
+												<option>48</option>
+												<option>49</option>
+												<option>50</option>
+												<option>51</option>
+												<option>52</option>
+												<option>53</option>
+												<option>54</option>
+												<option>55</option>
+												<option>56</option>
+												<option>57</option>
+												<option>58</option>
+												<option>59</option>
+											</select>秒
+											<input type="hidden" id="StartTime" name="star" />
+										</div>
+									</div>
+									
+									<div class="form-group"  id="jiangjiadiv">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-4">结束时间<span class="red"> *</span></label>
+
+										<div class="col-sm-9"> 
+											<input type="date" class="col-xs-10 col-sm-5"  id="MSendTimes" /><br><br>
+											<select id="E_S"> 
+												
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												
+											</select>时
+											<select id="E_F">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												<option>24</option>
+												<option>25</option>
+												<option>26</option>
+												<option>27</option>
+												<option>28</option>
+												<option>29</option>
+												<option>30</option>
+												<option>31</option>
+												<option>32</option>
+												<option>33</option>
+												<option>34</option>
+												<option>35</option>
+												<option>36</option>
+												<option>37</option>
+												<option>38</option>
+												<option>39</option>
+												<option>40</option>
+												<option>41</option>
+												<option>42</option>
+												<option>43</option>
+												<option>44</option>
+												<option>45</option>
+												<option>46</option>
+												<option>47</option>
+												<option>48</option>
+												<option>49</option>
+												<option>50</option>
+												<option>51</option>
+												<option>52</option>
+												<option>53</option>
+												<option>54</option>
+												<option>55</option>
+												<option>56</option>
+												<option>57</option>
+												<option>58</option>
+												<option>59</option>
+											</select>分
+											<select id="E_M">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												<option>24</option>
+												<option>25</option>
+												<option>26</option>
+												<option>27</option>
+												<option>28</option>
+												<option>29</option>
+												<option>30</option>
+												<option>31</option>
+												<option>32</option>
+												<option>33</option>
+												<option>34</option>
+												<option>35</option>
+												<option>36</option>
+												<option>37</option>
+												<option>38</option>
+												<option>39</option>
+												<option>40</option>
+												<option>41</option>
+												<option>42</option>
+												<option>43</option>
+												<option>44</option>
+												<option>45</option>
+												<option>46</option>
+												<option>47</option>
+												<option>48</option>
+												<option>49</option>
+												<option>50</option>
+												<option>51</option>
+												<option>52</option>
+												<option>53</option>
+												<option>54</option>
+												<option>55</option>
+												<option>56</option>
+												<option>57</option>
+												<option>58</option>
+												<option>59</option>
+											</select>秒
+											<input type="hidden" id="EndTime" name="end" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >商品编号<span class="red"> *</span></label>
+
+										<div class="col-sm-9"> 
+											<input type="text" class="col-xs-10 col-sm-5"  name="commoditykeyid" />
+											
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >商品条码<span class="red"> *</span></label>
+
+										<div class="col-sm-9"> 
+											<input type="text" class="col-xs-10 col-sm-5"  name="code" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >价格<span class="red"> *</span></label>
+
+										<div class="col-sm-9">
+										
+										<input type="text"  class="col-xs-10 col-sm-5"  name="price" />
+											
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >拼团编号<span class="red"> *</span></label>
+
+										<div class="col-sm-9">
+										
+										<input type="text"  class="col-xs-10 col-sm-5"  name="bh" />
+											
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >类型<span class="red"> *</span></label>
+
+										<div class="col-sm-9">
+										
+										<select id="pddtype">
+											<option>人数</option>
+											
+											<option>订单数量</option>
+											
+											<option>商品数量</option>
+										</select>
+											<input type="hidden"  class="col-xs-10 col-sm-5" id="pddtypeipt" name="type" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5" >图片<span class="red"> *</span></label>
+
+										<div class="col-sm-9">
+										
+										<input type="file"  class="col-xs-10 col-sm-5"    name="a" />
+											
+										</div>
+									</div>
+									
+								
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6">  </label>
+
+										<div class="col-sm-9">
+											<input type="button" onclick="addYouHuiQuan()" class="btn btn-success" value="确 定" name="code1" />
+																			
+										</div>
+										
+									</div>
+
+
+								</form>
+									
+									
+								
+										
+			</div><!-- /.main-container-inner -->
+										
+		
+		</div><!-- /.main-container -->
+
+	
+</body>
+</html>
+<script>
+window.onload= function(){
+	ShowAll();
+	PDquanxian();
+}
+
+function PDquanxian(){
+	var issuperadimn = localStorage.getItem("issuperadmin");
+	var auth = localStorage.getItem("usermessage");
+	var auths = auth.split(",");
+	var QXPDNUM =-1;
+	for(var i=0;i<auths.length;i++){
+		if(auths[i] == "COUPON_ADD"){
+			QXPDNUM=1;
+			break;
+		}
+	}
+	if(QXPDNUM==1){
+		$("#addyhqannue").css("display","block");
+	}
+	if(issuperadimn==1){
+		$("#addyhqannue").css("display","block");
+	}
+}
+ function fafangleixing(){
+ var a = $("#outtypeselect").val();
+ if(a=="直接发放"){
+	$("#outtypehhidden").val(1)
+ }else{
+	$("#outtypehhidden").val(0)}
+ }
+</script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/selectPDD.js"> </script>
+<script src="assets/js/JS5941/public.js"></script>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		
+		
+		
+		<script src="assets/js/ace-extra.min.js"></script>
+
+
+	</head>
+
+	<body>
+
+	
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								优惠券兑换
+								<small>
+									<i class="icon-double-angle-right"></i>
+									
+								</small>
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+				
+
+								<div class="row">
+									<div class="col-xs-12">
+										
+										
+										
+										
+										<h3><input style="height:41px;width:260px "type="text" id="saerchuserphone" placeholder="不想找，搜索一下吧！"><input onclick="searchuser()" class="btn btn-primary" type="button" value="OK"/></h3>
+										<hr>
+										<div class="table-header">
+											用户管理
+										</div>
+
+										<div class="table-responsive">
+											<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>序号</th>
+														<th>用户名</th>
+														<th>用户来源</th>
+														<th title="1正常  2冻结">用户状态</th>
+														<th title="1是超级管理员  2不是超级管理员">超级管理员</th>
+														<th>手机号</th>
+														<th>添加时间</th>
+														<th>性别</th>
+														<th>年龄</th>
+														<th>积分</th>
+														<th>余额</th>
+														<th>用户类型</th>
+														<th>昵称</th>
+														<th>累计登录次数</th>
+														<th>操作</th>
+													</tr>
+												</thead>
+
+												<tbody id="allmessage">
+													
+																									
+												</tbody>
+											</table>
+											<div style="float:left;padding-left:25%;padding-right:2%">
+												每页显示
+											<select onchange="changerows()" id="thisrows">
+												<option>5</option>
+												<option>10</option>
+												<option>15</option>
+												<option>20</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+												<option>500</option>
+											</select>
+											条数据
+										</div>
+										
+											
+											<div style="float:left;width:400px;height:50px;margin:auto"  id="annuediv">
+											
+											</div>
+												<div style="float:left;margin-left:20px;">
+											到第
+											<input   type="text" style="width:45px;height:30px;text-align: center;" value="1" id="thispage"/>
+											页
+											<a id="okannue4"></a>
+										
+										</div>
+										</div>
+									</div>
+								</div>
+						
+								
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/JS5941/indexlist.js"></script>
+		<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+<div  id="hiddenmessage"></div>
+<div>
+	<div  id="updcommoditydiv" style="border:1px solid #ccc;padding:15px 120px;width:600px;background:#fff;margin:auto;position:fixed;top:20px;left:50%;margin-left:-300px;display:none">
+								<span style="position:relative;left:118% " onclick="closepagediv()" class="btn btn-danger">X</span>
+								 
+								<h2 class="red">修改用户信息</h2>
+							
+								<form id="upduserdivform">
+								<table class="table table-striped table-bordered table-hover">
+									<tr>
+										<td>头像</td><td><input type="file" name="a"></td>
+									</tr>
+									
+									<tr>
+										<input type="hidden" id="subuid" name="UID">
+										<input type="hidden" id="subuname" name="uname">
+										<input type="hidden" id="subid" name="id">
+										<td>昵称</td><td><input type="text" name="nickname" placeholder="昵称"></td>
+									</tr>
+									
+									<tr>
+										<td>性别</td>
+										<td>
+											<select id="getsex">
+												<option>男</option>
+												<option>女</option>
+												<option>保密</option>
+											</select>
+											<input type="hidden" id="setsex" name="sex" />
+										</td>
+									</tr>
+									<tr>
+										<td>年龄</td>
+										<td>
+											<select name="age">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												<option>24</option>
+												<option>25</option>
+												<option>26</option>
+												<option>27</option>
+												<option>28</option>
+												<option>29</option>
+												<option>30</option>
+												<option>31</option>
+												<option>32</option>
+												<option>33</option>
+												<option>34</option>
+												<option>35</option>
+												<option>36</option>
+												<option>37</option>
+												<option>38</option>
+												<option>39</option>
+												<option>40</option>
+												<option>41</option>
+												<option>42</option>
+												<option>43</option>
+												<option>44</option>
+												<option>45</option>
+												<option>46</option>
+												<option>47<option>
+												<option>48</option>
+												<option>49</option>
+												<option>50</option>
+												<option>51</option>
+												<option>52</option>
+												<option>53</option>
+												<option>54</option>
+												<option>55</option>
+												<option>56</option>
+												<option>57</option>
+												<option>58</option>
+												<option>59</option>
+												<option>60</option>
+												<option>61</option>
+												<option>62</option>
+												<option>63</option>
+												<option>64</option>
+												<option>65</option>
+												<option>66</option>
+												<option>67</option>
+												<option>68</option>
+												<option>69</option>
+												<option>70</option>
+												<option>71</option>
+												<option>72</option>
+												<option>73</option>
+												<option>74</option>
+												<option>75</option>
+												<option>76<option>
+												<option>77</option>
+												<option>78</option>
+												<option>79</option>
+												<option>80</option>
+												<option>81</option>
+												<option>82</option>
+												<option>83</option>
+												<option>84</option>
+												<option>85</option>
+												<option>86</option>
+												<option>87</option>
+												<option>88</option>
+												<option>89</option>
+												<option>90</option>
+												<option>91</option>
+												<option>92</option>
+												<option>93</option>
+												<option>94</option>
+												<option>95</option>
+												<option>96</option>
+												<option>97</option>
+												<option>98</option>
+												<option>99</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>支付宝号</td><td><input type="password" name="zfb" placeholder="支付宝号"></td>
+									</tr>
+									<tr>
+										<td>真实姓名</td><td><input type="password" name="membername" placeholder="真实姓名"></td>
+									</tr>
+									<tr>
+										<td>原密码</td><td><input type="password" name="password" placeholder="原密码"></td>
+									</tr>
+									<tr>
+										<td>新密码</td><td><input type="password" name="newpassword" placeholder="新密码"></td>
+									</tr>
+									</tr>
+								</table>
+									
+								</form>
+								<span onclick="updateusermessage()" class="btn btn-danger">确定</span>
+									<br><br><br>
+							
+							</div>
+</div>
+</body>
+</html>
+<script>
+window.onload= function(){
+	showAll();
+}
+</script>
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/selectalluser.js"> </script>
+<script src="assets/js/JS5941/public.js"></script>
+ 

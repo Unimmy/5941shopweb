@@ -1,0 +1,14 @@
+.page-header{
+   display: flex;  
+}
+.table-header{
+    background: #fff;
+    color:#000;
+}
+.right{
+    float:right;
+}
+.right.d-flex{
+display: flex;
+width:200px;
+}

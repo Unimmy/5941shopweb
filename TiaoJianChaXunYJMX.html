@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>5941</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="assets/css/otherall.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/5941CSS/index.css"/>
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/downloadiocn.css" />
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="assets/js/html5shiv.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+	
+
+	
+
+		 
+
+					<div class="page-content">
+						<div class="page-header">
+							<h1>
+								
+								佣金明细查询
+								<br><br>
+								 
+							</h1>
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+
+								<form class="form-horizontal" id="jsbbforms">
+					
+									<div id="typediv" style="float:left;margin-left:25px;">
+									<span style=" background:#ededed;text-align:center;line-height:42px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">状态</span>
+										
+										<select id="zttype" style="height:42px;">
+									
+											<option>已入账</option>
+											<option>未入账</option>
+											
+										</select>
+									</div>	
+										
+								
+									<div id="acountdiv" style="float:left;margin-left:25px;margin-right:25px; ">
+										<span style=" background:#ededed;text-align:center;line-height:42px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">账号</span>
+										<input style="height:42px"  type="text" id="accounts" placeholder=" 要查询的账户（此项必填） " name="code"/>
+										
+									</div>
+									
+									<div id="IDdiv" style="float:left;margin-left:25px;margin-right:25px;  ">
+										<span style=" background:#ededed;text-align:center;line-height:42px;display: block;width:75px;height:42px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">订单编号</span>
+										<input style="height:42px"  type="text" id="mxid"   name="code"/>
+										
+									</div>
+									<span style="float:left" onclick="showAll2()" class="btn btn-primary">查 询</span>
+									<br><br><br>
+									<div style="float:left;margin: 10px 25px;display:none" >
+										<span style=" background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">开始时间</span>
+										<input style="height:29px" type="date"  onchange=" changestartimess()" id="changetimess" />
+										<input type="hidden" id="starttimess" name="star" />
+											<select onchange="changestartimess()" id="Starttimeshi">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+											</select>
+											时
+											<select onchange="changestartimess()" id="Starttimefen">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												<option>24</option>
+												<option>25</option>
+												<option>26</option>
+												<option>27</option>
+												<option>28</option>
+												<option>29</option>
+												<option>30</option>
+												<option>31</option>
+												<option>32</option>
+												<option>33</option>
+												<option>34</option>
+												<option>35</option>
+												<option>36</option>
+												<option>37</option>
+												<option>38</option>
+												<option>39</option>
+												<option>40</option>
+												<option>41</option>
+												<option>42</option>
+												<option>43</option>
+												<option>44</option>
+												<option>45</option>
+												<option>46</option>
+												<option>47</option>
+												<option>48</option>
+												<option>49</option>
+												<option>50</option>
+												<option>51</option>
+												<option>52</option>
+												<option>53</option>
+												<option>54</option>
+												<option>55</option>
+												<option>56</option>
+												<option>57</option>
+												<option>58</option>
+												<option>59</option>
+												
+											</select>
+											分&nbsp &nbsp &nbsp &nbsp	&nbsp &nbsp &nbsp &nbsp
+												&nbsp &nbsp &nbsp &nbsp	&nbsp &nbsp &nbsp &nbsp		
+								 										
+									</div>
+
+									<div style="float:left;margin:10px 25px;display:none" >
+										<span style=" background:#ededed;text-align:center;line-height:29px;display: block;width:75px;height:29px;float:left;border-left:1px solid #ccc;border-bottom:1px solid #ccc;border-top:1px solid #ccc;">结束时间</span>
+										<input style="height:29px" type="date"  onchange="  changeendtimess()" id="changeendtotimess" />
+										<input type="hidden" id="endtimess" name="end" />	
+                                            <select  onchange="changeendtimess()" id="Endtimeshi">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+											</select>
+											时
+											<select onchange="changeendtimess()" id="Endtimefen">
+												<option>0</option>
+												<option>1</option>
+												<option>2</option>
+												<option>3</option>
+												<option>4</option>
+												<option>5</option>
+												<option>6</option>
+												<option>7</option>
+												<option>8</option>
+												<option>9</option>
+												<option>10</option>
+												<option>11</option>
+												<option>12</option>
+												<option>13</option>
+												<option>14</option>
+												<option>15</option>
+												<option>16</option>
+												<option>17</option>
+												<option>18</option>
+												<option>19</option>
+												<option>20</option>
+												<option>21</option>
+												<option>22</option>
+												<option>23</option>
+												<option>24</option>
+												<option>25</option>
+												<option>26</option>
+												<option>27</option>
+												<option>28</option>
+												<option>29</option>
+												<option>30</option>
+												<option>31</option>
+												<option>32</option>
+												<option>33</option>
+												<option>34</option>
+												<option>35</option>
+												<option>36</option>
+												<option>37</option>
+												<option>38</option>
+												<option>39</option>
+												<option>40</option>
+												<option>41</option>
+												<option>42</option>
+												<option>43</option>
+												<option>44</option>
+												<option>45</option>
+												<option>46</option>
+												<option>47</option>
+												<option>48</option>
+												<option>49</option>
+												<option>50</option>
+												<option>51</option>
+												<option>52</option>
+												<option>53</option>
+												<option>54</option>
+												<option>55</option>
+												<option>56</option>
+												<option>57</option>
+												<option>58</option>
+												<option>59</option>
+												
+											</select>
+											分&nbsp &nbsp &nbsp &nbsp	&nbsp &nbsp &nbsp &nbsp
+																		
+									</div>
+
+								</form>
+								<!--
+								<form  action="http://123.207.147.134:8091/web/EXRecommend2" method="GET">
+									<input type="hidden" name="star" id="start_out" /></td>
+									<input type="hidden" name="end"  id="end_out" /></td>
+									<input type="hidden" name="type" id="type_out" /></td>
+									<input type="hidden" name="phone" id="phone_out" /></td>
+									<input type="hidden" name="page" id="page_out" /></td>
+									<input type="hidden" name="rows" id="rows_out" /></td>
+									<input type="hidden" name="state" id="state_out" /></td>
+									<input type="hidden" name="uname" id="uname_out" /></td>
+									<input type="hidden" name="UID" id="uid_out" /></td>
+									<input type="submit" onmouseover="setcanshu()" style="float:right" class="btn btn-warning" value="导出数据" />  
+								</form>
+									<span  style="float:right"><input onclick="jiusuanok()" class="btn btn-success" type="submit" value="结算确认" /> </span> 
+								-->
+									
+								
+									
+									
+							</div><!-- /.col -->
+							<br><br><br>
+											<table class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th id="xuhaoth3">序号</th>
+														<th id="jiesuth3">下单时间</th>
+														<th id="bihaoth3">订单编号 </th>
+ 
+														<th id="dinidth3">店铺名称</th>
+														<th id="dinjeth3">送货方式</th>
+														<th id="gyshath3">订单金额</th>															
+														<th id="gyshangfencheg3">商品数量 </th>
+														 											
+														<th id="dianpfengcheng3">实得金额 </th>
+													 
+													</tr>
+													
+												</thead>
+
+												<tbody id="allmessage">
+																									
+												</tbody>
+												
+											</table>
+											
+											
+											<div style="float:left;padding-left:25%;padding-right:2%">
+												每页显示
+											<select id="thisrows">
+											
+												<option>5</option>
+												<option>10</option>
+												<option>15</option>
+												<option>20</option>
+												<option>50</option>
+												<option>100</option>
+												<option>200</option>
+												<option>500</option>
+											</select>
+											条数据
+										</div>
+										
+									
+										
+										<div style="width:390px;height:50px;margin:auto;float:left;"  id="annuediv">
+											
+										</div>
+										
+										<div style="float:left;margin-left:20px;">
+											到第
+											<input type="text" style="width:45px;height:30px;text-align: center;" value="1" id="thispage"/>
+											页
+											
+										<input type="button" onclick="showAll2()" class="btn btn-success" value="确定"  />
+										</div>
+											
+											
+											
+						</div><!-- /.row -->
+						
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+	
+			</div><!-- /.main-container-inner -->
+								
+		</div><!-- /.main-container -->
+	<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<![endif]-->
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
+<![endif]-->
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+		<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
+
+		<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/chosen.jquery.min.js"></script>
+		<script src="assets/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="assets/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="assets/js/date-time/moment.min.js"></script>
+		<script src="assets/js/date-time/daterangepicker.min.js"></script>
+		<script src="assets/js/bootstrap-colorpicker.min.js"></script>
+		<script src="assets/js/jquery.knob.min.js"></script>
+		<script src="assets/js/jquery.autosize.min.js"></script>
+		<script src="assets/js/jquery.inputlimiter.1.3.1.min.js"></script>
+		<script src="assets/js/jquery.maskedinput.min.js"></script>
+		<script src="assets/js/bootstrap-tag.min.js"></script>
+
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+	
+		<script src="assets/js/bootstrap.min.js"></script>
+		
+		<script src="assets/js/ace.min.js"></script>
+
+</body>
+</html>
+<script>
+
+
+function getdivwidth(){
+ 
+	var xuhaoth = document.getElementById("xuhaoth1").offsetWidth;
+	document.getElementById("xuhaoth3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("bihaoth1").offsetWidth;
+	document.getElementById("bihaoth3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("jiesuth1").offsetWidth;
+	document.getElementById("jiesuth3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("dinidth1").offsetWidth;
+	document.getElementById("dinidth3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("dinjeth1").offsetWidth;
+	document.getElementById("dinjeth3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("gyshath1").offsetWidth;
+	document.getElementById("gyshath3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("tuijnth1").offsetWidth;
+	document.getElementById("tuijnth3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("yhzhath1").offsetWidth;
+	document.getElementById("yhzhath3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("jieztth1").offsetWidth;
+	document.getElementById("jieztth3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("gyshangfencheg").offsetWidth;
+	document.getElementById("gyshangfencheg3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("fengsfengcheng").offsetWidth;
+	document.getElementById("fengsfengcheng3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("dianpfengcheng").offsetWidth;
+	document.getElementById("dianpfengcheng3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("systemfencheng").offsetWidth;
+	document.getElementById("systemfencheng3").style.width=xuhaoth+"px";
+	var xuhaoth = document.getElementById("tjianrfencheng").offsetWidth;
+	document.getElementById("tjianrfencheng3").style.width=xuhaoth+"px";
+}
+ 
+</script>
+
+<script src="assets/js/jquery-3.2.1.js"></script>
+<script src="assets/js/JS5941/TiaoJianChaXunYJMX.js"> </script>
+ <script src="assets/js/JS5941/public.js"> </script>
